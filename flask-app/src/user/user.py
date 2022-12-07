@@ -3,9 +3,29 @@ import json
 from src import db
 
 
-customers = Blueprint('customers', __name__)
+user = Blueprint('userintro', __name__)
 
-# Get all customers from the DB
+# User posts their preferences
+@user.route('/userintro', methods=['POST'])
+def add_user():
+    current_app.logger.info(request.form)
+    cursor = db.get_db().cursor()
+    firstname = request.form['firstname']
+    lastname = request.form['lastname']
+    age = request.form['age']
+    address_country = request.form['address_country']
+    address_state = request.form['address_state']
+    email_address = request.form['email_address']
+    query = f'INSERT INTO user(firstname, lastname, age, address_country, address_state, email_address) VALUES(\"{firstname}\", \"{lastname}\", \"{age}\", \"{address_country}\", \"{address_state}\", \"{email_address}\")
+    db.get_db().commit()
+    return "Success!"
+    
+
+
+
+
+
+
 @customers.route('/customers', methods=['GET'])
 def get_customers():
     cursor = db.get_db().cursor()
