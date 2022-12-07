@@ -41,14 +41,9 @@ create table user_data (
 	first_name VARCHAR(50),
 	last_name VARCHAR(50),
 	age INTEGER,
-	address_street VARCHAR(50),
-	address_city VARCHAR(50),
 	address_state VARCHAR(50),
-	address_zip VARCHAR(50),
 	address_country VARCHAR(50),
-	analyzed_by INTEGER,
 	email_address VARCHAR(50),
-    CONSTRAINT user_fk_1 FOREIGN KEY (analyzed_by) REFERENCES analyst_data (company_id)
 );
 
 INSERT INTO user_data VALUES (85739, 'Ursuline', 'Torre', 29, '7 Coleman Lane', 'San Antonio', 'Texas', '78220', 'United States', 37013, 'utorre0@virginia.edu');
