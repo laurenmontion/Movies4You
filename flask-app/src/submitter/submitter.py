@@ -7,8 +7,19 @@ submitters = Blueprint('submitter', __name__)
 
 
 # get all movies from the DB they have submitted
-@submitters.route('/submitter', methods = ['GET]'])
-def get_movies():
+@submitters.route('/submitter/movie-id', methods = ['GET]'])
+def get_movies(movie_id):
+    cursor = db.get_db().cursor()
+    cursor.execute('select * from movie_data where movie_id = {0}'.format(movie_id))
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
 
 
 @submitters.route('/submitter', methods=['POST]'])
