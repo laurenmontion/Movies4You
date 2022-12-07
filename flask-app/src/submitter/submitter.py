@@ -3,10 +3,37 @@ import json
 from src import db
 
 
-customers = Blueprint('customers', __name__)
+submitters = Blueprint('submitter', __name__)
+
+
+# get all movies from the DB they have submitted
+@submitters.route('/submitter', methods = ['GET]'])
+def get_movies():
+
+
+@submitters.route('/submitter', methods=['POST]'])
+def add_movies():
+    current_app.logger.info(request.form)
+    cursor = db.get_db().cursor()
+    movie_id = request.form['movie_id']
+    title = request.form['title']
+    language = request.form['language']
+    runtime = request.form['runtime']
+    time_period = request.form['time_period']
+    critic_rating = request.form['critic_rating']
+    maturity_rating = request.form['maturity_rating']
+    producer_name = request.form['producer_name']
+    release_date = request.form['release_date']
+    directed_by = request.form['directed_by']
+    genre_id = request.form['genre_id']
+
+    query = f'INSERT INFO movie_data()'
+    cursor.execute(query)
+    db.get_db().commit()
+    return "Success!"
 
 # Get all customers from the DB
-@customers.route('/customers', methods=['GET'])
+@customers.route('/submitter', methods=['GET'])
 def get_customers():
     cursor = db.get_db().cursor()
     cursor.execute('select customerNumber, customerName,\
