@@ -2,7 +2,6 @@ from flask import Blueprint, request, jsonify, make_response
 import json
 from src import db
 
-
 analyst = Blueprint('analyst', __name__)
 
 # Get all movie submitters from the DB

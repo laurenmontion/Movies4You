@@ -15,7 +15,9 @@ def add_user():
     address_country = request.form['address_country']
     address_state = request.form['address_state']
     email_address = request.form['email_address']
+    cursor = db.get_db().cursor()
     query = f'INSERT INTO user(firstname, lastname, age, address_country, address_state, email_address) VALUES(\"{firstname}\", \"{lastname}\", \"{age}\", \"{address_country}\", \"{address_state}\", \"{email_address}\")'
+    cursor.execute(query)
     db.get_db().commit()
     return "Success!"
 
