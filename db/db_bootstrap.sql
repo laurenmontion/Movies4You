@@ -43,14 +43,14 @@ create table user_data (
 	age INTEGER,
 	address_state VARCHAR(50),
 	address_country VARCHAR(50),
-	email_address VARCHAR(50),
+	email_address VARCHAR(50)
 );
 
-INSERT INTO user_data VALUES (85739, 'Ursuline', 'Torre', 29, '7 Coleman Lane', 'San Antonio', 'Texas', '78220', 'United States', 37013, 'utorre0@virginia.edu');
-INSERT INTO user_data VALUES (11029, 'Ichabod', 'Ouver', 60, '25194 Sage Crossing', 'Grand Forks', 'North Dakota', '58207', 'United States', 37013, 'iouver1@forbes.com');
-INSERT INTO user_data VALUES (00087, 'Marley', 'Ivachyov', 23, '2 Buena Vista Street', 'Atlanta', 'Georgia', '30316', 'United States', 23286, 'mivachyov2@sourceforge.net');
-INSERT INTO user_data VALUES (74803, 'Clemence', 'Rahl', 46, '2 Mitchell Junction', 'Chicago', 'Illinois', '60681', 'United States', 87839, 'crahl3@oracle.com');
-INSERT INTO user_data VALUES (33845, 'Alyson', 'Vines', 18, '22 Delladonna Parkway', 'Sacramento', 'California', '95813', 'United States', 15813, 'avines4@google.fr');
+INSERT INTO user_data VALUES (85739, 'Ursuline', 'Torre', 29, 'United States', 37013, 'utorre0@virginia.edu');
+INSERT INTO user_data VALUES (11029, 'Ichabod', 'Ouver', 60, 'United States', 37013, 'iouver1@forbes.com');
+INSERT INTO user_data VALUES (00087, 'Marley', 'Ivachyov', 23, 'United States', 23286, 'mivachyov2@sourceforge.net');
+INSERT INTO user_data VALUES (74803, 'Clemence', 'Rahl', 46, 'United States', 87839, 'crahl3@oracle.com');
+INSERT INTO user_data VALUES (33845, 'Alyson', 'Vines', 18, 'United States', 15813, 'avines4@google.fr');
 
 # preferences table
 create table preferences_data (

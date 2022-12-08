@@ -25,12 +25,12 @@ def create_app():
     db.init_app(app)
     
     # Import the various routes
-    from src.submitter import submitters
-    from src.analyst import analyst
-    from src.user import user
+    from src.submitter.submitter import submitter
+    from src.analyst.analyst import analyst
+    from src.user.user import user
 
     # Register the routes that we just imported so they can be properly handled
-    app.register_blueprint(submitters,       url_prefix='/classic')
+    app.register_blueprint(submitter,       url_prefix='/classic')
     app.register_blueprint(analyst,   url_prefix='/classic')
     app.register_blueprint(user,    url_prefix='/classic')
 
