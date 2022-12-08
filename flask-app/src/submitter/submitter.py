@@ -6,7 +6,7 @@ from src import db
 submitters = Blueprint('submitter', __name__)
 
 
-# get all movies from the DB they have submitted
+# get all movies from the DB with a certain movie-id
 @submitters.route('/submitter/movie-id', methods = ['GET]'])
 def get_movies(movie_id):
     cursor = db.get_db().cursor()
