@@ -3,13 +3,13 @@ import json
 from src import db
 
 
-analyst = Blueprint('customers', __name__)
+analyst = Blueprint('analyst', __name__)
 
 # Get all movie submitters from the DB
 @analyst.route('/moviesubmitters', methods=['GET'])
 def get_submitters():
     cursor = db.get_db().cursor()
-    cursor.execute('select * from submitter_data)
+    cursor.execute('select * from submitter_data')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -39,7 +39,7 @@ def get_customer(employee_id):
 @analyst.route('/moviedata', methods=['GET'])
 def get_movies():
     cursor = db.get_db().cursor()
-    cursor.execute('select movie_id, title from movie_data)
+    cursor.execute('select movie_id, title from movie_data')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
