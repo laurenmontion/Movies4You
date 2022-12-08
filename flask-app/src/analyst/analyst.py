@@ -3,14 +3,28 @@ import json
 from src import db
 
 
-customers = Blueprint('customers', __name__)
+analyst = Blueprint('customers', __name__)
 
-# Get all customers from the DB
-@customers.route('/customers', methods=['GET'])
-def get_customers():
+# Get all movie submitters from the DB
+@analyst.route('/moviesubmitters', methods=['GET'])
+def get_submitters():
     cursor = db.get_db().cursor()
-    cursor.execute('select customerNumber, customerName,\
-        creditLimit from customers')
+    cursor.execute('select * from submitter_data)
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+    
+# Get information about a specific movie submitter 
+@analyst.route('/moviesubmitters/<employee_id>', methods=['GET'])
+def get_customer(employee_id):
+    cursor = db.get_db().cursor()
+    cursor.execute('select employee_id from submitter_data')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -21,11 +35,11 @@ def get_customers():
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get customer detail for customer with particular userID
-@customers.route('/customers/<userID>', methods=['GET'])
-def get_customer(userID):
+# Get all movie submitters from the DB
+@analyst.route('/moviedata', methods=['GET'])
+def get_movies():
     cursor = db.get_db().cursor()
-    cursor.execute('select * from customers where customerNumber = {0}'.format(userID))
+    cursor.execute('select movie_id, title from movie_data)
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -35,3 +49,9 @@ def get_customer(userID):
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+                   
+
+
+
+
+
