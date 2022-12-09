@@ -1,20 +1,23 @@
 # create database
 CREATE DATABASE movies_4_you_db;
 
-# create first user and grant privileges
-CREATE USER 'user'@'%' IDENTIFIED BY 'ilovemovies123';
-GRANT ALL PRIVILEGES ON movies_4_you_db.* TO 'user'@'%';
+GRANT ALL PRIVILEGES on movies_4_you_db.* TO 'webapp'@'%';
 FLUSH PRIVILEGES;
 
-# second user with privileges
-CREATE USER 'moviesubmitter'@'%' IDENTIFIED BY 'c0c0nuT65';
-GRANT ALL PRIVILEGES ON movies_4_you_db.* TO 'moviesubmitter'@'%';
-FLUSH PRIVILEGES;
-
-# third user with privileges
-CREATE USER 'analyst'@'%' IDENTIFIED BY '**cL0cK$';
-GRANT ALL PRIVILEGES ON movies_4_you_db.* TO 'analyst'@'%';
-FLUSH PRIVILEGES;
+# # create first user and grant privileges
+# CREATE USER 'user'@'%' IDENTIFIED BY 'ilovemovies123';
+# GRANT ALL PRIVILEGES ON movies_4_you_db.* TO 'user'@'%';
+# FLUSH PRIVILEGES;
+#
+# # second user with privileges
+# CREATE USER 'moviesubmitter'@'%' IDENTIFIED BY 'c0c0nuT65';
+# GRANT ALL PRIVILEGES ON movies_4_you_db.* TO 'moviesubmitter'@'%';
+# FLUSH PRIVILEGES;
+#
+# # third user with privileges
+# CREATE USER 'analyst'@'%' IDENTIFIED BY '**cL0cK$';
+# GRANT ALL PRIVILEGES ON movies_4_you_db.* TO 'analyst'@'%';
+# FLUSH PRIVILEGES;
 
 # working inside database
 USE movies_4_you_db;
