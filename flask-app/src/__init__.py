@@ -30,8 +30,8 @@ def create_app():
     from src.user.user import user
 
     # Register the routes that we just imported so they can be properly handled
-    app.register_blueprint(submitter,       url_prefix='/classic')
-    app.register_blueprint(analyst,   url_prefix='/classic')
-    app.register_blueprint(user,    url_prefix='/classic')
+    app.register_blueprint(submitter,       url_prefix='/movies4U')
+    app.register_blueprint(analyst,   url_prefix='/movies4U')
+    app.register_blueprint(user,    url_prefix='/movies4U')
 
     return app
